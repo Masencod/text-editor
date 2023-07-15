@@ -12,7 +12,26 @@ const MenuBar = ({ editor }) => {
   if (!editor) {
     return null
   }
+
+  //variables for font family and font size
   const [fontFamily, setFontFamily] = useState('Inter')
+  const [fontSize, setFontSize] = useState('10')
+  
+  //font size options
+  const fontSizeOptions = [
+    '10',
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30'
+  ]
+  
   return (
     <div className='flex flex-wrap gap-2'>
         <div
@@ -29,7 +48,26 @@ const MenuBar = ({ editor }) => {
             <button
                 className='p-1 bg-slate-300 rounded-lg transition-all duration-200 ease-in-out hover:bg-slate-600'
                 onClick={() => {
-                    editor.chain().focus().setFontFamily(fontFamily).run()
+                    editor.chain().focus().setMark ("textStyle", { fontSize: fontSize }).run()
+                }}>
+            Set
+            </button>
+        </div>
+        <div
+            className='p-2 rounded-xl bg-white text-black'>
+                <select name="fonts" id="fonts"
+                className='outline-none'
+                onChange={({target}) => setFontSize(target.value)}>
+                    {fontSizeOptions.map((f , i) => {
+                        return (
+                            <option key={i} value={f}>{f}</option>
+                        )
+                    })}
+                </select>
+            <button
+                className='p-1 bg-slate-300 rounded-lg transition-all duration-200 ease-in-out hover:bg-slate-600'
+                onClick={() => {
+                    editor.chain().focus().setFontSize(fontSize).run()
                 }}>
             Set
             </button>
