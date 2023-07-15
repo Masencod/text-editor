@@ -1,18 +1,39 @@
 import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
+import FontFamily from '@tiptap/extension-font-family'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import clsx from 'clsx'
+import { useState } from 'react'
 
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
     return null
   }
-
+  const [fontFamily, setFontFamily] = useState('Inter')
   return (
     <div className='flex flex-wrap gap-2'>
+        <div
+            className='p-2 rounded-xl bg-white text-black'>
+                <select name="fonts" id="fonts"
+                className='outline-none'
+                onChange={({target}) => setFontFamily(target.value)}>
+                    <option value="Inter">Inter</option>
+                    <option value="Comic Sans MS, Comic Sans">Comic Sans</option>
+                    <option value="serif">serif</option>
+                    <option value="monospace">monospace</option>
+                    <option value="cursive">cursive</option>
+                </select>
+            <button
+                className='p-1 bg-slate-300 rounded-lg transition-all duration-200 ease-in-out hover:bg-slate-600'
+                onClick={() => {
+                    editor.chain().focus().setFontFamily(fontFamily).run()
+                }}>
+            Set
+            </button>
+        </div>
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={

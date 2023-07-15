@@ -2,6 +2,7 @@ import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import { EditorContent, useEditor } from '@tiptap/react'
+import FontFamily from '@tiptap/extension-font-family'
 import StarterKit from '@tiptap/starter-kit'
 import clsx from 'clsx'
 import MenuBar from './Menu'
@@ -10,6 +11,9 @@ const TipTap = () => {
   const editor = useEditor({
     extensions: [
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
+      FontFamily.configure({
+        types: ['textStyle'],
+      }),
       TextStyle.configure({ types: [ListItem.name] }),
       StarterKit.configure({
         bulletList: {
