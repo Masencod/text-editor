@@ -5,6 +5,7 @@ import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import clsx from 'clsx'
 import MenuBar from './Menu'
+import Bubble from './Bubble'
 const TipTap = () => {
   const editor = useEditor({
     extensions: [
@@ -56,6 +57,7 @@ const TipTap = () => {
   return (
     <div>
       <MenuBar editor={editor} />
+      {editor && <Bubble editor={editor}/>}
       <EditorContent editor={editor} className='mt-3'/>
     </div>
   )
