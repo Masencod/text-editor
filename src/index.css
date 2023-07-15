@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: rgb(209, 209, 209);
+}
+.ProseMirror {
+  outline: none;
+  border: 1px black solid;
+  padding: 1rem;
+  border-radius: 2rem;
+}
