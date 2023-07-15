@@ -97,60 +97,6 @@ const MenuBar = ({ editor }) => {
         paragraph
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 1}),
-            'bg-white text-black': !editor.isActive('heading', {level: 1})
-        })}
-      >
-        h1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 2}),
-            'bg-white text-black': !editor.isActive('heading', {level: 2})
-        })}
-      >
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 3}),
-            'bg-white text-black': !editor.isActive('heading', {level: 3})
-        })}
-      >
-        h3
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 4}),
-            'bg-white text-black': !editor.isActive('heading', {level: 4})
-        })}
-      >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 5}),
-            'bg-white text-black': !editor.isActive('heading', {level: 5})
-        })}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading', {level: 6}),
-            'bg-white text-black': !editor.isActive('heading', {level: 6})
-        })}
-      >
-        h6
-      </button>
-      <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
             'bg-black text-white': editor.isActive('bulletlist'),
@@ -171,37 +117,11 @@ const MenuBar = ({ editor }) => {
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('codeblock'),
-            'bg-white text-black': !editor.isActive('codeblock')
+            'bg-black text-white': editor.isActive('codeBlock'),
+            'bg-white text-black': !editor.isActive('codeBlock')
         })}
       >
         code block
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('blockquote'),
-            'bg-white text-black': !editor.isActive('blockquote')
-        })}
-      >
-        blockquote
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setHorizontalRule().run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading'),
-            'bg-white text-black': !editor.isActive('heading')
-        })}>
-        horizontal rule
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setHardBreak().run()}
-        className={clsx('p-2 rounded-xl transition-all duration-200 ease-in-out hover:bg-gray-500',{
-            'bg-black text-white': editor.isActive('heading'),
-            'bg-white text-black': !editor.isActive('heading')
-        })}
-        >
-        hard break
       </button>
       <button
         onClick={() => editor.chain().focus().undo().run()}
@@ -215,19 +135,6 @@ const MenuBar = ({ editor }) => {
         className={clsx('p-2 rounded-xl transition-all duration-200 bg-white text-black ease-in-out hover:bg-gray-500')}
       >
         undo
-      </button>
-      <button
-        onClick={() => editor.chain().focus().redo().run()}
-        disabled={
-          !editor.can()
-            .chain()
-            .focus()
-            .redo()
-            .run()
-        }
-        className={clsx('p-2 rounded-xl transition-all duration-200 bg-white text-black ease-in-out hover:bg-gray-500')}
-      >
-        redo
       </button>
       <button
         onClick={() => editor.chain().focus().setColor('#958DF1').run()}

@@ -5,7 +5,7 @@ import {
   
   const Bubble = ({editor}) => {
     return (
-      <BubbleMenu editor={editor} tippyOptions={{ duration: 0 }}>
+      <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
         <div className='bg-slate-400 rounded-lg p-5 flex gap-x-1'>
           <span
             onClick={() => {
